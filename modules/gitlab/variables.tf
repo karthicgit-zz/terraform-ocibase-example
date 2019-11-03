@@ -17,11 +17,15 @@ variable "gitlab_ssh_keys" {
 
 variable "gitlab_oci_general" {
   type = object({
-    ad_names     = list(string)
+    #ad_names     = list(string)
     label_prefix = string
     region       = string
   })
 }
+
+ variable "ad_names" {
+  
+ }
 
 # variable "gitlab_bastion" {
 #   type = object({
@@ -30,6 +34,9 @@ variable "gitlab_oci_general" {
 #     #image_operating_system = string
 #   })
 # }
+variable "bastion_public_ip"{
+  
+}
 
 variable "gitlab_network" {
   type = object({
@@ -50,6 +57,6 @@ variable "gitlab_config" {
   })
 }
 
-variable "bastion_ips" {
+# variable "bastion_ips" {
   
-}
+# }

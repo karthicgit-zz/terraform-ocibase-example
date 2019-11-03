@@ -14,7 +14,7 @@ locals {
   ssh_port          = "22"
 }
 resource "oci_core_security_list" "load_balancer" {
-  compartment_id = "${var.lb_identity.compartment_id}"
+  compartment_id = "${var.compartment_id}"
   display_name   = "${var.lb_general.label_prefix}-loadbalancer"
   vcn_id         = "${var.lb_general.vcn_id}"
 

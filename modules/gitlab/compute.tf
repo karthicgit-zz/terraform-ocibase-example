@@ -2,7 +2,7 @@
 # Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 resource "oci_core_instance" "gitlab" {
-  availability_domain = element(var.gitlab_oci_general.ad_names, 0)
+  availability_domain = element(var.ad_names, 0)
   compartment_id      = var.gitlab_identity.compartment_id
   display_name        = "${var.gitlab_oci_general.label_prefix}-gitlab"
 
@@ -40,7 +40,8 @@ resource null_resource "configure_gitlab" {
     private_key = file(var.gitlab_ssh_keys.ssh_private_key_path)
     timeout     = "40m"
 
-    bastion_host        = element(compact(values(var.bastion_ips)),0)
+    bastion_host = var.bastion_public_ip
+    #bastion_host        = element(compact(values(var.bastion_ips)),0)
     #bastion_host        = module.base.bastion_public_ip
     bastion_user        = "opc"
     bastion_private_key = file(var.gitlab_ssh_keys.ssh_private_key_path)

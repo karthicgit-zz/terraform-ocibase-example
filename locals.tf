@@ -53,9 +53,11 @@ locals {
 
   # gitlab_bastion = {
   #   bastion_public_ip      = module.base.bastion_public_ip
-  #   create_bastion         = var.create_bastion
+  #   #create_bastion         = var.create_bastion
   #   #image_operating_system = var.gitlab_bastion["image_operating_system"]
   # }
+
+  bastion_public_ip = module.base.bastion_public_ip
 
   gitlab_network = {
     ig_route_id                = module.base.ig_route_id
@@ -77,7 +79,7 @@ locals {
   }
 
   gitlab_oci_general = {
-    ad_names     = module.base.ad_names
+    #ad_names     = module.base.ad_names
     label_prefix = var.label_prefix
     region       = var.region
   }
@@ -92,11 +94,11 @@ locals {
     lb_shape = var.lb_shape
   }
 
-  lb_identity = {
-    compartment_id = var.compartment_id
-    # tenancy_id     = var.tenancy_id
-    ssh_public_key_path = var.ssh_public_key_path
-  }
+  # lb_identity = {
+  #   compartment_id = var.compartment_id
+  #   # tenancy_id     = var.tenancy_id
+  #   ssh_public_key_path = var.ssh_public_key_path
+  # }
 
   #dns
 

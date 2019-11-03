@@ -148,7 +148,7 @@ variable "gitlab_url" {
 # variable "gitlab_bastion" {
 #   type = object({
 #     bastion_public_ip      = string
-#     create_bastion         = bool
+#     #create_bastion         = bool
 #     #image_operating_system = string
 #   })
 # }
@@ -159,35 +159,40 @@ variable "gitlab_ssh_keys" {
   })
 }
 
-variable "gitlab_oci_general" {
-  type = object({
-    ad_names     = list(string)
-    label_prefix = string
-    region       = string
-  })
-}
+# variable "gitlab_oci_general" {
+#   type = object({
+#     #ad_names     = list(string)
+#     label_prefix = string
+#     region       = string
+#   })
+# }
 # loadbalancer
 
-variable "lb_general" {
-  type = object({
+#  variable "ad_names" {
+  
+#  }
 
-    label_prefix = string
-    ad_names = list(string)
-    vcn_id   = string
-    subnets  = map(number)
-    vcn_cidr = string
-    newbits  = map(number)
-    lb_shape = string
-  })
-}
 
-variable "lb_identity" {
-  type = object ({
-    compartment_id = string
-    # tenancy_id     = string
-    ssh_public_key_path = string
-  })
-}
+# variable "lb_general" {
+#   type = object({
+
+#     label_prefix = string
+#     ad_names = list(string)
+#     vcn_id   = string
+#     subnets  = map(number)
+#     vcn_cidr = string
+#     newbits  = map(number)
+#     lb_shape = string
+#   })
+# }
+
+# variable "lb_identity" {
+#   type = object ({
+#     compartment_id = string
+#     # tenancy_id     = string
+#     ssh_public_key_path = string
+#   })
+# }
 
 
 variable "lb_shape" {
@@ -247,3 +252,10 @@ variable "dns_general" {
     dns_zone_domain   = string
   })
 }
+
+# variable "oci_base_general" {
+#   type = object({
+#     label_prefix = string
+#     region       = string
+#   })
+# }

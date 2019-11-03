@@ -1,6 +1,6 @@
 resource "oci_load_balancer" "lb" {
   shape          = "${var.lb_general.lb_shape}"
-  compartment_id = "${var.lb_identity.compartment_id}"
+  compartment_id = "${var.compartment_id}"
 
   subnet_ids = [
     "${oci_core_subnet.publiclb_subnet.id}",

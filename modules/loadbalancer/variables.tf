@@ -12,14 +12,14 @@ variable "lb_general" {
     lb_shape = string
   })
 }
-variable "lb_identity" {
-  type = object({
-    compartment_id = string
-    # tenancy_id     = string
-    ssh_public_key_path = string
-  })
-}
-# variable "compartment_ocid" {}
+# variable "lb_identity" {
+#   type = object({
+#     compartment_id = string
+#     # tenancy_id     = string
+#     ssh_public_key_path = string
+#   })
+# }
+ variable "compartment_id" {}
 
 # variable "tenancy_ocid" {}
 

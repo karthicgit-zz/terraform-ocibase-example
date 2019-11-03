@@ -29,7 +29,7 @@ data "oci_core_vnic" "gitlab_vnic" {
 
 data "oci_core_vnic_attachments" "gitlab_vnic" {
   compartment_id      = var.gitlab_identity.compartment_id
-  availability_domain = element(var.gitlab_oci_general["ad_names"], 0)
+  availability_domain = element(var.ad_names,0)
   instance_id         = oci_core_instance.gitlab.id
 }
 
